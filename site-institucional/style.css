@@ -1,0 +1,357 @@
+/* RESUMO DAS ATUALIZAÇÕES:
+   1. Na sessão btn existia uma variável "--primary" (??) que estava deixando o botão sem fundo
+   substitui por uma cor de background para o botão na linha 114)
+   2. Criei a classe ".text-center" na linha 17 para alinhar textos centralizados (substituindo a tag <center> que era obsoleta).
+   3. Ajuste no @media na linha 126 para telas menores garantindo que a barra de navegação (menu) também fique responsiva.
+   4. Acho que colocar a tag "alt" nas imagens acabou "empurrando" elementos invisiveis na sessão "FEATURES" na linha 200 o que deixou
+   o fundo que era um quadrado virar literalmente um fundo inteiro, se precisar que mude me fala, mas preferi assim :v
+   5. Ajustei o centro no ".feature-card" adicionados as tags "margin: 0 auto; e margin-bottom: 15px;"
+   6. Adicionado a fonte Poppins no css
+   7. Na aba split eu tive que fazer uns ajustes porque a imagem da aba projetos tinha quebrado a linha.
+*/
+
+/*RESET BÁSICO*/
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+}
+
+/*ALINHAMENTO DE TEXTO PARA O CENTRO*/
+.text-center {
+    text-align: center;
+}
+
+/*IMAGENS*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*NAV*/
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(0,51,102,0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    color: #f5f7fa;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/*CONTAINER*/
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/*BANNER*/
+#banner {
+    height: 100vh;
+    background: linear-gradient(rgba(0,51,102,0.7), rgba(0,0,0,0.6)),
+                url('img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    height: 100%;
+}
+
+.banner-text {
+    color: white;
+    flex: 1;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+}
+
+.banner-text p {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.banner-image {
+    flex: 1;
+    text-align: center;
+}
+
+.banner-image img {
+    width: 100%;
+    max-width: 500px;
+}
+/*BOTÃO*/
+.btn-banner {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #00aaff; 
+    color: rgb(0,51,102,0.7);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,51,102,0.7);
+}
+
+/*RESPONSIVO*/
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-text p {
+        text-align: center;
+    }
+}
+
+/*SEÇÕES*/
+.section {
+    padding: 100px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/*OFFSET PARA HEADER FIXO*/
+section {
+    scroll-margin-top: 80px;
+}
+
+.light {
+    background: white;
+}
+
+.dark {
+    background: #eef3f8;
+}
+
+/*TITULOS*/
+h2 {
+    text-align: center;
+}
+
+h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00aaff, #003366);
+    display: block;
+    margin: 10px auto;
+}
+
+/*GALERIA*/
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.05);
+}
+
+/*FEATURES*/
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+/*SPLIT*/
+.split {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.split img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*EQUIPE*/
+.equipe-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.membro-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+    text-align: center; 
+    overflow: hidden;
+}
+
+/* IMAGEM DO TICO E TECO KKKKKK*/
+.membro-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+/* VIDEO QUE O DIVO DO ENOQUE FEZ*/
+.video-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* FOOTER */
+footer {
+    background: #002244;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/*
+
+                                       nccnbbnnbxbxbmxbmxbmxmbxmbxmxbxmbxmbxmbxmbxmbxmbxmbx
+                                     ccncdbgddgbbdnncncncncncncncncncnncncncnccncncncnxncncnc
+                                  cnccnbcncvncvncnvzvnvnxvnvncvncvncvnvcnvcnvcncvvncnvcvncvncnnc
+                               cnxvxvxnxvnvxnnvxnvxvnxvnxvxvnxnvxnxnvxvnxvnxnxnvxnvnxnxnvxnvxnvxx
+                             ]xXXJQO00QjXcvvvvczYYYxvnxxnnvcczvnvvvnvxxccccnrrxxnxxrxnnnnnnvvvvvcnf
+                           >XXXJQ000QjXZccvvvXYJJJzvvccvncccvvvnnccxxnxnccccvvnnnxcnvvvvcccccnfcncZXZ_
+                         ]vXYQZmmO0CXczzXcvcYCO0JcvczcnvccvrrrxxnxnznfzvvvcvcccvvczcczzzzzzzzzXXXXYQQX[
+                       ]vXYQZwwmOQYXXXcnnncYQZ0XczzXXvvczcnrjjjrnnnvczcvvccczcccXXXXXXXYYYXXXYYYYYYQZmOx;
+                     ,xJXYOwwwOQYXYYcnnnnzJ000zczXzvvczcvxrjrrxxnvnnvnncncccnvzXcXYYYXYYYYYXXXYYYYYXQmwMC+
+                    ~zYXCmpwZCXcXYXvnrjrY00XxncXcnvzzzvnxxrrrrrrnvncxncnfnncrxcvzXYYYxccYXYYYYXXzzcczZJzWwZ_
+                  |YYXCZwmmOXczJYvjtfttxXOQvfjnxxvvzzzvnxxrrrxxrcnfcxnnnvcnnnnnzxxxXXYYYXYzzYJxcvvxnxvJ0wpZ{'
+                 "rYJYQmwZCznXQzf/|///jvQCj|/rxrrjvZXvrxxxxrxrrxxnvnnnnccvvcxxxnfcnnzzzxvXXzXYYcvcnrnnXOQmwWX!
+               !fYQCQmwZJcvYOc/((/r/tnCYt)/tffjfvzXcrjrjrxnrxxrxrrnvcnfnnccxncxxxvvvvvnnzccCZxrjnxnrjnxJZQmdpC+
+              !xQ00QZmZYvvCOn11{|x||tcXt{({|(tfvzXXvftfrvnvxrxxxxnXnvvzCXvvncnfncxxccjjnccXOmCr||)(|/fnnZmOpdwC+
+             !n0mOQOmZJvc00v}{{1nj/(fcf11({)|fncXXYx|tjnnvnrjxfnYcnfQzrnvvzJYcccvcccvnf|/jcvJmwJ{{{{{}tjrcwZZdwQ<
+            vOpZQ0ZZJvc00z1}{{rvf//fj)((()1/rvzXJYt/fxnnxjjtjfzO0nfxxFncnfXJznnvccn|cc11xccZwZr}}{{{1|jrjJwZwdpwn:
+            /0ppOQ0ZCzvC0C/}{1|Jrjt/({1n())1/ncJY0cjtjxxnx/tttn0mcnfOntrxccjrcQJn|ccj/11{1ncCmwJ)}~1|tnxr|0mOpdpO/`
+           >YppZ00ZQXvz00v{}{)nYxj//}}tn({)(rvJOC0crjxxxxr||ftcnzZmc0n/jxxrz0Cctc}c}{{{1{|nrQwOx|{{|jzcn(cpZwpm0C_.
+          `fwwO0C00JzcC0Qn()({YznT/{}lxn(/)(rcQ000Xrjxnvnx/(j/YmmOx/fcnfcrncxCCccJcj{{)())(|/cMwJ}{1(tXYzfrOw0Zm0Cz`
+          ~CdZQC00QXZX0ZQx)()(fjCxtxj((cv|f|)fzZmmZJnrjncnn/cn)t/CpW0jt|j/|CccnZZJr)}1((((//fQpZx11(tcCXx/Qp00Z0QQ1.
+         '/mpZQJ0ZQYYJzm0n|(/nQvjrXX/|cXjf/|jXwwmOYcnrJznnt(/f0pwMQcr/|{QdpcnffncOx|{{)1(|)/nYwbX|)|fvQjvjCZ00pwM0X;
+         "nppZCCZ0CJYCZwmvffrXQvcvCzjfcJjtt|jcZw0Q0zvjCJcvrrxxQpwmwzfcnfcn(c)|xddoJ/}}1)|tjtvCmd0t(|jvQCzfzQCQwwmMC~
+         :Cdw0J0mO0QJCmwmzxxvYOxzvJXjjzCntftjcQpOx0CYnJCXznxnvYpcncncwZbOc(fttZdbwc)11|cCnnX0Zbpx//jvQQXxcQJCZmmmO}.
+         lZdO0JZZO0OJJpbdQXXXCOvXvYXrjcCQfjrjCCpZ|0ZQzcOCzYJJJY0wZcnfcnfJpCj/jrXmkb0cCjnQXJ0ZwddXjtjvO0JvcYXY0ZZmO('
+         imwZQCmmZZZJYpbbOXJJCZzcvYJrjnCZXczrvYZpfjZmQz0QYXC0O00wwYmmXrfxncnfXphbZZOQcnfY000ZZbhkQnjjcmCzX000mwdbwx,
+         imw0JQmwmwZCXwkkb00OQmZJcXQXncYZZYJvzCQp0ltwp0CZZ0CC0wZmpmwwwJJYnnJbhbpmwZ0w0mZdhb0cnfcnvrrY0mmO0mmmdmkkpX;
+         immOJ0wmwmwQc0khabmwZZwmzcOQXYXJw0QQcC0md} "fdd00ZZ000ppZmpY|  pdpdpwQQpkkpwmcnfmpm0mdhhwznvCmwO0mwwdbhhDJI
+         IZw0YQmmddw0XYkaoakddZmpwm0OQXXjJwZ0mJYpbd> "zdbbpwwCYOppmww (lcbpdbb00XddOZpdd0ZpkhdOcnfYCOmwmO0wddddhkwZ>
+         :0mOY0mmddpw0CdhooabbdQOppwZmZJYIJmwwwOXOk0l   }wdadwwCYQwwmww}  <wbbbbmO^ cbZOwbZOwcbbpZOOZpwm00dbbpkhkwm<
+         'Ym0CQmwbbdw00OkaooahkpvCpddmmZQz;xmwmpwwdO>    !QdkdmmQjYmwYQmj'  }ZdbbbQ~ "Omwm00ZwdpmZmwddcwOmbkbpbkdZ0,
+          fpZQQwwbpdw0OQmhhaaahkm{~wddpwwZc^!0wwmZOQCQf   ~OwwZOO{}YmOCCv<   iQZOCCr  ICmZZ0mpwmwmwpdcnpdbkdddbbmZC.
+          [ZZQCwwdddp0CCCO|~zZ0OQCc:If00Ojc/I !/v]<((rtf   +j[_+_) ( i)|~I!    <!"l^^      `OmmwwZdpwppdpcnfwwwmOZx
+          iCm0CmpbkdpZQJC0-                                                                 ZmwmZZ00cnf0ZwwwOwZQQ01
+          ^vOZC0pdkkpm0CC0} >~~<l"^'.":,^^,>i`                        _-[{}1|fjjjrnccxtr.   OZmZOZ0C00000QC000O0Ci
+           (0m0QwpbkdwZ0C0zrzl  ]O0000Z0Ci  !fl                      [)i' r0Q00OXI!)   x:   ZmmZ0ZJCCJCXJC00Z0wn'
+           "JwZ00pdkbmZ0COO_ i[>IvJCJCQQz:<]"    '"^                 ^i>l{_vCv~' I-]>'      'ZZmO00C0CC0QYYQmZwO{
+            )mwZ0wdbkp00JOZ0,  .^l(XJJz1I.       '""                    `l+QY~,^`.          _000000CYX00JCJOmwmO
+             XmmZZpbbkpZOQO0JI                    .':                      {1^              "zO00QQJXQ00CCQwmp[
+             ~OmmZZpbbkm000ZZC<                                           {:,+i             _Y0QQQCJJ00QCXZwm0
+              'nmmmwwppddOCYCZOJ|                                         _I,,:}^          fO0CCQCYQZZOQmmppb/
+                ~Xmmwwdddn0JXJZO0X<                                      ~-.,",!)         _J0Q0CC00pwZZmppbkd!
+                 1JZmwppdddmQCYJZZ0CY~                                   tl","::t^       InQ000JQZppp0mwwdkkm"
+                  )JZZwdbdbbmQ0CJ00ZQ{jc!                               l<""""">(       lxCQ00QCwpdpZmwddbbp0!
+                   {X0Zmwbdbdw0000QCfzOQf-I,,,.                           l}+_+I       !xCQZZZ0mdbkdwddbkp0"~t;
+                    [cQ0ZmddbbdZ0ZOOx'}znt+"                                           !nQ0mmwwpdkbwdddbww~  iJ+
+                      ;rJOZZwbkkbwO0ZZOn<` :>I        I:,::;II;:,:l`                 <z0wwmpppdkkpdbdbO2z^
+                       )YCOmwbkbdwmO0ZZZ0z~.           .`.,'""^^"^^'               '/CZwwdbbddbbkkbbkbbbXYY-
+                        ;vCOmwdkhkdpwmZZZ0Yr(/}>         . ,;;;;:^                ;-cOdpdbkhkkkbbddbkddv`n(^
+                          }JOZwdbhhkppwmwwwmOJ|i,^                .             `Il;i>r0ppppphhhkdbbpZpbkbwQ  -
+                            [Y0wbahhkbdpwmwwwZZ0Yj~`              .           `:,`,<tOwdbkbkhhhdbbbbbbbddbpbt  `
+                             .XQZkahhkkhkbdpppwpwmmmm0JcvYYj><><~<!;,^'`.,`.````'fZdwdbdhhkhhkbbkkkdbdpdpbwX/)|
+                             nZmdhhhhhkkkkkkbddpdpdddpmcf1+:`^""""`i,.::::;:rwpdpdddkkkkkkppbkkkkdpbbpbpQZZz|}]_)
+                   '.       ^Q0wkkkhkkbbkkkhhhhkbkkkkc;"^^^````````````I)C00m00mwZpwkbdcnddpbbkbkkpbkkhbc(~!;
+  .'               !zv({ltvmwmhbddkkkkkbkhhhhhbkbbkZCI''''''''...... lfQJ0QxO0CmpmdOwcnfcpdbbkdkbbkbkkkdb0Xf)/j
+     1 .f>           '>n0Zmkkkdbhhkkkbbkkhhhhhbkbbkbm},'...'::"...'lX/{1!Ix0XrOZCpmwmmpbdcnfpddkOjwbkkkkbOCJJY/
+     ]f{}r/[!Ii{XmmQmkahhhhbkkkbbbbkkkkkhhkkhhhbdwmZYnnj>           [cc~[JY/mCQmZ0mdbcnfndwdpddm" fwdbbwdbwO0nt
+      ;;,"|jYZbdpOJZkhhhhkbbdpbdbbdw00}!Ykaahdx!;++;                !_ 1J)+JbJZbmcjwpcnfdb0mbppdc. .xbbbbm(1j-I
+     ."I>i_<<jmmwppkkbpwnCppp0ZmpZmO0j jkdhhbpmQ|I.                   ^` jm0JZpmznwQYcnfpv-YbpZ0Qj^ `mmkpZCr{|!
+
+*/

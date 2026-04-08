@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - PDGDSA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { gov: { blue: '#00427A', green: '#2E7D32' } } } } }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 p-8 font-sans">
+
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6 border-b pb-2">Configuração: Tipos de Solicitação</h1>
+        
+        <form action="/api/tipos-solicitacao" method="POST" class="mb-8 bg-gray-50 p-4 border rounded">
+            <h3 class="font-bold mb-4">Adicionar Novo Documento</h3>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-bold mb-1">Nome do Documento</label>
+                    <input type="text" name="nome" class="w-full border p-2 rounded" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-1">Prazo Padrão (Dias)</label>
+                    <input type="number" name="prazo_padrao_dias" class="w-full border p-2 rounded" required>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4">
+                <label class="flex items-center">
+                    <input type="checkbox" name="exige_anexo" value="1" class="mr-2"> Exige Anexo do Aluno?
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" name="permite_urgencia" value="1" class="mr-2"> Permite Urgência?
+                </label>
+            </div>
+            
+            <button type="submit" class="bg-gov-blue text-white px-4 py-2 rounded font-bold">Salvar Tipo</button>
+        </form>
+
+        <table class="w-full text-left text-sm border-collapse">
+            <thead>
+                <tr class="bg-gray-100 border-b">
+                    <th class="p-2">Documento</th>
+                    <th class="p-2 text-center">Prazo (Dias)</th>
+                    <th class="p-2 text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b">
+                    <td class="p-2 font-bold">Histórico Escolar</td>
+                    <td class="p-2 text-center font-mono">15</td>
+                    <td class="p-2 text-center"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-bold">Ativo</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!-- Atualizações -->
+<!-- 1. Na sessão "AOS2" (linha 239) foi linkado o script.js
+     2. Haviam tags "<center>" (Tags descontinuadas) naS sessões "JUSTIFICATIVA, INTERFACE E EQUIPE",
+        elas foram substituidas por uma class .text-center para alinhar textos centralizados.
+     3. Na sessão "JUSTIFICATIVA" havia um erro de digitação que estava fazendo a tag "p" não fechar
+     (faltando o </p> na linha 111) e também ocorreu o mesmo com a tag "div" (faltando o </div> na linha 112)
+     4. Na sessão "REFERÊNCIAS" na linha 215 estava tudo junto então transformei em uma lista não ordenada cada uma.
+     5. Nas imagens estava faltando a tag "alt" ela é essencial para acessibilidade e vi que conta ponto em projeto.
+     (Eu vi que são a maioria de gatinhos, então deixei qualquer coisa, mas quando for adicionar de verdade tem que colocar
+     a descrição 😡)
+     6. Adicionei logo e nome provisório PLAD.
+     7. Adicionados ícones substituindo os gatos.
+     8. Adicionado a fonte Poppins porque eu gosto dela.
+     9. Mudei as sessões "Sobre o Projeto" e "Interface Moderna" para deixar as imagens ao lado e centralizadas.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plad: Plataforma de Documentação</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AOS1 -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- FONTE POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<!-- Body -->
+<body>
+
+<!-- Header -->
+<header>
+    <nav class="container nav">
+        <h2 class="logo-text">PLAD</h2>
+        <ul>
+            <li><a href="#banner">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#justificativa">Justificativa</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#interface">Interface</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#equipe">Equipe</a></li>
+            <li><a href="#video">Vídeo</a></li>
+            <li><a href="#referencia">Referências</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main -->
+<main>
+
+<!-- BANNER -->
+<section id="banner">
+    <div class="container banner-flex">
+        <div class="banner-text" data-aos="fade-right">
+            <h1>PLAD</h1>
+            <p>
+                Plataforma de Documentação do IEEP.
+            </p>
+            <a href="#sobre" class="btn-banner">Explorar</a>
+        </div>
+
+        <div class="banner-image" data-aos="fade-left">
+            <img src="img/logo/plad_logo_v1.png" alt="Logo Plad">
+        </div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="section light">
+    <div class="container split"> <div class="text" data-aos="fade-right">
+            <h2>Sobre o Projeto</h2>
+
+            <P style="text-align: justify;">
+                O PDGDSA (Plataforma Digital para Gerenciamento de Documentos e Solicitações Acadêmicas) consiste em uma plataforma web integrada que oferece uma interface de solicitação para o aluno e um painel de gerenciamento administrativo para a secretaria escolar.
+            </P>
+
+            <p style="text-align: justify;">
+                O principal objetivo é digitalizar e automatizar o fluxo de solicitação e acompanhamento  de documentos acadêmicos, como declarações, históricos e certificados.
+            </p>
+
+            <P style="text-align: justify;"> A solução permitirá que os estudantes acompanhem o status de suas solicitações remotamente, evitando deslocamentos desnecessários à instituição.
+                Além disso, organiza digitalmente as informações, preparando a base estrutural para a futura implementação de assinaturas digitais por parte da direção.
+            </P>
+
+        </div>
+
+        <div class="image" data-aos="fade-left">
+            <img src="img/logo/projeto.png" alt="ícone de Projeto">
+        </div>
+
+    </div>
+</section>
+
+<!-- JUSTIFICATIVA -->
+<section id="justificativa" class="section light">
+    <div class="container">
+
+        <div class="text" data-aos="fade-right">
+            <h2>Justificativa</h2>
+
+            <p class="text-center">
+                O funcionamento atual da secretaria escolar baseia-se fortemente em processos manuais e no uso excessivo de papel. Essa dinâmica pode gerar problemas como a dificuldade na organização de solicitações simultâneas, o risco de extravio de requerimentos e a falta de transparência no acompanhamento dos pedidos por parte dos alunos.
+            </p>
+
+            <p class="text-center">
+                A informatização destes processos reduz o uso de papel, otimiza o tempo de atendimento e melhora a comunicação entre os diferentes setores institucionais e seus usuários. Dessa forma, a modernização do ambiente educacional torna as atividades mais ágeis, organizadas e acessíveis.
+            </p>
+        </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="section light">
+    <div class="container">
+        <h2 data-aos="fade-up">Galeria</h2>
+
+        <div class="galeria-grid">
+            <img src="img/pastas_fisicas.jpeg" data-aos="zoom-in" data-aos-delay="100">
+            <img src="img/pastas_fisicas2.jpeg" data-aos="zoom-in" data-aos-delay="200">
+            <img src="img/secretaria.jpeg" data-aos="zoom-in" data-aos-delay="300">
+            <img src="img/armario.jpeg" data-aos="zoom-in" data-aos-delay="400">
+        </div>
+    </div>
+</section>
+
+<!-- INTERFACE -->
+<section id="interface" class="section light">
+    <div class="container split">
+
+        <div class="text" data-aos="fade-right">
+            <h2>Interface Moderna</h2>
+            <p class="text-center">A interface do sistema foi desenvolvida com um design moderno, limpo e intuitivo, facilitando a navegação e o uso por diferentes perfis de usuários.</p> 
+            <p class="text-center">Sua organização clara permite acesso rápido às funcionalidades, contribuindo para a agilidade e eficiência nos processos administrativos.</p>
+        </div>
+
+        <div class="image" data-aos="fade-left">
+            <img src="img/logo/interface.png" alt="Ícone de Interface">
+        </div>
+
+    </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades" class="section dark">
+    <div class="container">
+        <h2 data-aos="fade-up">Funcionalidades</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="img/logo/solicitacoes.png" alt="Ícone representando solicitações online">
+                <h3>Solicitações Online</h3>
+                <p>Peça documentos facilmente.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="img/logo/acompanhamento.png" alt="Ícone representando acompanhamento de status">
+                <h3>Acompanhamento</h3>
+                <p>Status em tempo real.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="img/logo/organizacao.png" alt="Ícone representando organização e gestão">
+                <h3>Organização</h3>
+                <p>Gestão eficiente.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe" class="section dark">
+    <div class="container">
+        <h2 data-aos="fade-up">Equipe</h2>
+
+        <div class="equipe-grid">
+
+            <div class="membro-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="img/enoque.png" alt="Enoque">
+                <h3>Enoque Mitome</h3>
+                <p>Aluno do Curso Técnico em Informática do IEEP.</p>
+                <p class="text-center">Co-responsável pelo desenvolvimento da aplicação web, pesquisa exploratória e prototipagem do sistema.</p>
+                <a href="https://www.linkedin.com/in/enoquemitome/" target="_blank">LinkedIn</a> | <a href="https://github.com/chizukimpa" target="_blank">GitHub</a>
+            </div>
+
+            <div class="membro-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="img/larice.jpeg" alt="Larice">
+                <h3>Larice Maia</h3>
+                <p class="text-center">Aluna do Curso Técnico em Informática do IEEP.</p>
+                <p class="text-center">Co-responsável pelo desenvolvimento da aplicação web, levantamento de dados na secretaria e estruturação do banco de dados.</p>
+                <a href="https://www.linkedin.com/in/larice-maia-45112b365/" target="_blank">LinkedIn</a> | <a href="#" target="_blank">GitHub</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="section light">
+    <div class="container">
+        <h2 data-aos="fade-up">Apresentação</h2>
+
+        <div class="video-container" data-aos="zoom-in">
+            <iframe width="100%" height="400"
+                <source src="videos/Projeto Integrador.mp4" type="video/mp4">
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Referências -->
+<section id="referencia" class="section light">
+    <div class="container">
+
+        <div class="text" data-aos="fade-right">
+            <h2>Referências</h2>
+
+            <ul style="text-align: justify; list-style-position: inside; padding: 0;">
+                <li>ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6023: informação e documentação: referências: elaboração. Rio de Janeiro: ABNT, 2018.</li>
+                <li>BRASIL. Portal Gov.br. Brasília: Secretaria de Governo da Presidência da República, 2026. Disponível em: https://www.gov.br/pt-br. Acesso em: 27 mar. 2026.</li>
+                <li>FACULDADE FOCUS. Área do Aluno: Login. Cascavel: Focus, 2026. Disponível em: https://faculdadefocus.com.br/login. Acesso em: 27 mar. 2026.</li>
+                <li>LAUDON, Kenneth; LAUDON, Jane. Sistemas de Informações Gerenciais. Edição Português. 2014.</li>
+                <li>PARÁ. Secretaria de Estado de Meio Ambiente e Sustentabilidade. CATIS: Central de Atendimento de Tecnologia da Informação da SEMAS (Interface GLPI). Versão 10.0.9. Belém: SEMAS, 2026. Disponível em: https://catis.semas.pa.gov.br. Acesso em: 27 mar. 2026.</li>
+                <li>SANTOS, R.; SILVA, M. Digitalização e gestão eletrônica de documentos em instituições educacionais. Revista de Gestão e Tecnologia da Informação, 2020.</li>
+            </ul>
+        </div>
+    </div>
+ </section>
+
+ <!-- Footer -->
+<footer>
+    <p>PDGDSA - Projeto Integrador 2026</p>
+</footer>
+
+<!-- AOS2 -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out'
+    });
+</script>
+
+<script src="script.js">
+</script>
+</body>
+
+</html>
