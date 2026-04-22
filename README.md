@@ -9,11 +9,15 @@ Este projeto visa digitalizar e otimizar a solicitação de documentos para alun
 * React.js
 * Tailwind CSS
 * Font Awesome
+* AOS Animations
 
-**Backend & Dados:**
-* Node.js
-* PostgreSQL
-* Autenticação via Firebase/Supabase
+**Banco de Dados & Servidor Local:**
+* XAMPP
+* MySQL Workbench
+* phpMyAdmin
+
+**Backend:**
+* A definir
 
 ## Estrutura do Projeto
 * `/projeto-escrito` - Documentação oficial e relatórios.
