@@ -5,27 +5,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema projeto_integrador
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema projeto_integrador
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `projeto_integrador` DEFAULT CHARACTER SET utf8 ;
-USE `projeto_integrador` ;
-
--- -----------------------------------------------------
--- Table `projeto_integrador`.`table1`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `projeto_integrador`.`table1` ;
-
-CREATE TABLE IF NOT EXISTS `projeto_integrador`.`table1` (
-  `idtable1` INT NOT NULL,
-  PRIMARY KEY (`idtable1`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `projeto_integrador`.`USUARIOS`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `projeto_integrador`.`USUARIOS` ;
@@ -40,8 +19,8 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`USUARIOS` (
   `ativo` TINYINT NOT NULL,
   `data_criacao` DATETIME NOT NULL,
   PRIMARY KEY (`id_usuarios`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  UNIQUE INDEX `matricula_UNIQUE` (`matricula` ASC) VISIBLE)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  UNIQUE INDEX `matricula_UNIQUE` (`matricula` ASC))
 ENGINE = InnoDB;
 
 
@@ -70,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`TURMAS` (
   `aluno-turma_idaluno-turma` INT NOT NULL,
   `CURSOS_id_cursos` INT NOT NULL,
   PRIMARY KEY (`id_turma`, `aluno-turma_idaluno-turma`, `CURSOS_id_cursos`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE,
-  INDEX `fk_TURMAS_CURSOS1_idx` (`CURSOS_id_cursos` ASC) VISIBLE,
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC),
+  INDEX `fk_TURMAS_CURSOS1_idx` (`CURSOS_id_cursos` ASC),
   CONSTRAINT `fk_TURMAS_CURSOS1`
     FOREIGN KEY (`CURSOS_id_cursos`)
     REFERENCES `projeto_integrador`.`CURSOS` (`id_cursos`)
@@ -93,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`DOCUMENTOS_EMITIDOS` (
   `data_emissão` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_documentos_emitidos`, `USUARIOS_id_usuarios`),
-  INDEX `fk_DOCUMENTOS_EMITIDOS_USUARIOS_idx` (`USUARIOS_id_usuarios` ASC) VISIBLE,
+  INDEX `fk_DOCUMENTOS_EMITIDOS_USUARIOS_idx` (`USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_DOCUMENTOS_EMITIDOS_USUARIOS`
     FOREIGN KEY (`USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`USUARIOS` (`id_usuarios`)
@@ -131,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`SOLICITACOES` (
   `data_finalização` DATETIME NULL,
   `USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_solicitacao`, `USUARIOS_id_usuarios`),
-  UNIQUE INDEX `numero_protocolo_UNIQUE` (`numero_protocolo` ASC) VISIBLE,
-  INDEX `fk_SOLICITACOES_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC) VISIBLE,
+  UNIQUE INDEX `numero_protocolo_UNIQUE` (`numero_protocolo` ASC),
+  INDEX `fk_SOLICITACOES_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_SOLICITACOES_USUARIOS1`
     FOREIGN KEY (`USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`USUARIOS` (`id_usuarios`)
@@ -154,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`ANEXOS_SOLICITACAO` (
   `SOLICITACOES_id_solicitacao` INT NOT NULL,
   `SOLICITACOES_USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_anexos_solicitacao`, `SOLICITACOES_id_solicitacao`, `SOLICITACOES_USUARIOS_id_usuarios`),
-  INDEX `fk_ANEXOS_SOLICITACAO_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC) VISIBLE,
+  INDEX `fk_ANEXOS_SOLICITACAO_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_ANEXOS_SOLICITACAO_SOLICITACOES1`
     FOREIGN KEY (`SOLICITACOES_id_solicitacao` , `SOLICITACOES_USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`SOLICITACOES` (`id_solicitacao` , `USUARIOS_id_usuarios`)
@@ -178,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`MOVIMENTACOES` (
   `SOLICITACOES_id_solicitacao` INT NOT NULL,
   `SOLICITACOES_USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_movimentacoes`, `SOLICITACOES_id_solicitacao`, `SOLICITACOES_USUARIOS_id_usuarios`),
-  INDEX `fk_MOVIMENTACOES_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC) VISIBLE,
+  INDEX `fk_MOVIMENTACOES_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_MOVIMENTACOES_SOLICITACOES1`
     FOREIGN KEY (`SOLICITACOES_id_solicitacao` , `SOLICITACOES_USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`SOLICITACOES` (`id_solicitacao` , `USUARIOS_id_usuarios`)
@@ -203,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`NOTIFICACOES` (
   `SOLICITACOES_id_solicitacao` INT NOT NULL,
   `SOLICITACOES_USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_notificacao`, `SOLICITACOES_id_solicitacao`, `SOLICITACOES_USUARIOS_id_usuarios`),
-  INDEX `fk_NOTIFICACOES_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC) VISIBLE,
+  INDEX `fk_NOTIFICACOES_SOLICITACOES1_idx` (`SOLICITACOES_id_solicitacao` ASC, `SOLICITACOES_USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_NOTIFICACOES_SOLICITACOES1`
     FOREIGN KEY (`SOLICITACOES_id_solicitacao` , `SOLICITACOES_USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`SOLICITACOES` (`id_solicitacao` , `USUARIOS_id_usuarios`)
@@ -226,8 +205,8 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`USUARIOS_has_TURMAS_has_USUARIO
   `TURMAS_aluno-turma_idaluno-turma` INT NOT NULL,
   `TURMAS_CURSOS_id_cursos` INT NOT NULL,
   PRIMARY KEY (`USUARIOS_has_TURMAS_TURMAS_id_turma`, `USUARIOS_has_TURMAS_TURMAS_aluno-turma_idaluno-turma`, `USUARIOS_has_TURMAS_TURMAS_CURSOS_id_cursos`, `USUARIOS_id_usuarios`, `TURMAS_id_turma`, `TURMAS_aluno-turma_idaluno-turma`, `TURMAS_CURSOS_id_cursos`),
-  INDEX `fk_USUARIOS_has_TURMAS_has_USUARIOS_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC) VISIBLE,
-  INDEX `fk_USUARIOS_has_TURMAS_has_USUARIOS_TURMAS1_idx` (`TURMAS_id_turma` ASC, `TURMAS_aluno-turma_idaluno-turma` ASC, `TURMAS_CURSOS_id_cursos` ASC) VISIBLE,
+  INDEX `fk_USUARIOS_has_TURMAS_has_USUARIOS_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC),
+  INDEX `fk_USUARIOS_has_TURMAS_has_USUARIOS_TURMAS1_idx` (`TURMAS_id_turma` ASC, `TURMAS_aluno-turma_idaluno-turma` ASC, `TURMAS_CURSOS_id_cursos` ASC),
   CONSTRAINT `fk_USUARIOS_has_TURMAS_has_USUARIOS_USUARIOS1`
     FOREIGN KEY (`USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`USUARIOS` (`id_usuarios`)
@@ -255,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `projeto_integrador`.`LOGS` (
   `data_log` DATETIME NOT NULL,
   `USUARIOS_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_logs`, `USUARIOS_id_usuarios`),
-  INDEX `fk_LOGS_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC) VISIBLE,
+  INDEX `fk_LOGS_USUARIOS1_idx` (`USUARIOS_id_usuarios` ASC),
   CONSTRAINT `fk_LOGS_USUARIOS1`
     FOREIGN KEY (`USUARIOS_id_usuarios`)
     REFERENCES `projeto_integrador`.`USUARIOS` (`id_usuarios`)

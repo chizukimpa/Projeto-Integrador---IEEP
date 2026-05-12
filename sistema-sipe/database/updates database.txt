@@ -1,0 +1,14 @@
+-- 1. Adicionei a coluna para saber qual secretário assumiu a solicitação
+ALTER TABLE `projeto_integrador`.`SOLICITACOES` 
+ADD COLUMN `id_secretario_atribuido` INT NULL AFTER `USUARIOS_id_usuarios`,
+ADD CONSTRAINT `fk_SOLICITACOES_SECRETARIO`
+  FOREIGN KEY (`id_secretario_atribuido`)
+  REFERENCES `projeto_integrador`.`USUARIOS` (`id_usuarios`);
+
+-- 2. Adicionei o status cancelado
+ALTER TABLE `projeto_integrador`.`SOLICITACOES` 
+MODIFY COLUMN `status` ENUM('RECEBIDO', 'EM_ANALISE', 'EM-CONFECCAO', 'AGUARDANDO_ASSINATURA', 'DEFERIDO', 'INDEFERIDO', 'FINALIZADO', 'CANCELADO') NOT NULL;
+
+-- 3. Fiz o mesmo na tabela de Movimentações
+ALTER TABLE `projeto_integrador`.`MOVIMENTACOES` 
+MODIFY COLUMN `status` ENUM('RECEBIDO', 'EM_ANALISE', 'EM-CONFECCAO', 'AGUARDANDO_ASSINATURA', 'DEFERIDO', 'INDEFERIDO', 'FINALIZADO', 'CANCELADO') NOT NULL;
