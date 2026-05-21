@@ -1,3 +1,5 @@
+/* src/index.css */
+/* Importações base do Tailwind CSS (Facilitou muito não ter que escrever CSS do zero pra cada botão) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

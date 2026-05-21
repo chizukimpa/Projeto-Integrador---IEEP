@@ -1,24 +1,24 @@
 <?php
-// backend/conexao.php
+// Arquivo base de conexão com o banco MySQL via PDO
+// Incluído em todas as rotas da API
 
-// Configurações do Banco de Dados
 $host = "localhost";
-$dbname = "projeto_integrador";
-$username = "root"; // Usuário padrão do XAMPP
-$password = "";     // Senha padrão do XAMPP (vazia)
+$dbname = "projeto_integrador"; 
+$username = "root"; // Usuário padrão local do XAMPP
+$password = "";     // Sem senha no ambiente de dev local
 
 try {
-    // Cria a conexão PDO
+    // Definindo o charset utf8 pra não dar problema de acentuação nos nomes
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     
-    // Configura para lançar exceções em caso de erro
+    // Forçando o PDO a jogar exceções (Exceptions) em vez de só dar erro silencioso
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 } catch(PDOException $e) {
-    // Caso dê erro de conexão, retorna um JSON avisando o React
+    // Se o MySQL do XAMPP estiver desligado, o frontend recebe esse erro bonitinho em JSON
     die(json_encode([
         "sucesso" => false,
-        "mensagem" => "Erro de conexão com o banco de dados: " . $e->getMessage()
+        "mensagem" => "Falha ao conectar no banco de dados. Verifica o XAMPP. Erro: " . $e->getMessage()
     ]));
 }
 ?>

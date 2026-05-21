@@ -1,0 +1,21 @@
+coisas pra agregar
+
+tarefas agendadas: finalizar a solicitação automaticamente depois de dar cancelado
+
+definir o id usuário para: aluno = 1,2,3 / secretario: 01,02,03 / adm: 001, 002, 003
+
+filtrar pesquisa em prioridade e status também
+
+colocar um admin\_mestre pra poder criar usuários admins
+
+criar um sistema de log de criação de usuários para verificar a segurança
+
+VERIFICAR COMO FUNCIONA O NUMERO DE INSCRIÇÃO VULGO MATRICULA
+
+adicionar no dashboard secretario métrica de mês
+
+adicionar no dashboard adm métricas e relatórios para ver os chamados do mês e quais secretários mais trabalham nas solicitações e tals
+
+fazer um chat pro aluno poder ter uma interação melhor com o secretario
+
+preciso de alguma forma encaixar as turmas e o curso no sistema

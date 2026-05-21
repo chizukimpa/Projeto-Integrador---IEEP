@@ -1,7 +1,0 @@
-USE `projeto_integrador`;
-
--- Criando um de cada tipo para testar as rotas
-INSERT INTO `USUARIOS` (`nome`, `email`, `senha`, `matricula`, `tipo_usuario`, `ativo`, `data_criacao`) VALUES 
-('Ana Aluna', 'aluno@teste.com', MD5('123'), 'MAT001', 'ALUNO', 1, NOW()),
-('Silvio Secretario', 'secretario@teste.com', MD5('123'), 'MAT002', 'SECRETARIO', 1, NOW()),
-('Admin Master', 'admin@teste.com', MD5('123'), 'MAT003', 'ADMINISTRADOR', 1, NOW());
